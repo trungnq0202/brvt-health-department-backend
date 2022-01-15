@@ -41,4 +41,14 @@ public class PatientServiceImpl implements PatientService {
         this.patientRepository.delete(patient);
         return patient.getID();
     }
+
+    public String validate(String name, String password) {
+        Patient patient =  this.patientRepository.findPatientByNameAndPassword(name, password);
+        if (patient == null) {
+            return "Wrong password";
+        }
+        else {
+            return "OK";
+        }
+    }
 }

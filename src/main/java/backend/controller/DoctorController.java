@@ -15,9 +15,14 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-    @RequestMapping(path = "doctors", method = RequestMethod.GET)
-    public Doctor getDoctorByID(@RequestParam int id){
+    @RequestMapping(path = "doctors/{id}", method = RequestMethod.GET)
+    public Doctor getDoctorByID(@PathVariable int id){
         return doctorService.getDoctor(id);
+    }
+
+    @RequestMapping(path = "doctors/validate/{name}/{password}", method = RequestMethod.GET)
+    public String validateDoctor(@PathVariable String name, @PathVariable String password){
+        return doctorService.validate(name, password);
     }
 
     @RequestMapping(path = "doctors/all", method = RequestMethod.GET)
@@ -35,8 +40,8 @@ public class DoctorController {
         return doctorService.saveDoctor(doctor);
     }
 
-    @RequestMapping(path = "doctors", method = RequestMethod.DELETE)
-    public long deleteDoctor(@RequestParam long id){
+    @RequestMapping(path = "doctors/{id}", method = RequestMethod.DELETE)
+    public long deleteDoctor(@PathVariable long id){
         return doctorService.deleteDoctor(id);
     }
 }

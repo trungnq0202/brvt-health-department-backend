@@ -41,4 +41,14 @@ public class DoctorServiceImpl implements DoctorService{
         this.doctorRepository.delete(doctor);
         return doctor.getID();
     }
+
+    public String validate(String name, String password) {
+        Doctor doctor =  this.doctorRepository.findDoctorByNameAndPassword(name, password);
+        if (doctor == null) {
+            return "Wrong password";
+        }
+        else {
+            return "OK";
+        }
+    }
 }
