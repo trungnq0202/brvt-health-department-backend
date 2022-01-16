@@ -1,11 +1,13 @@
 package backend.controller;
 
+import backend.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import backend.model.Patient;
 import backend.service.PatientService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/")
@@ -15,9 +17,12 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
-    @RequestMapping(path = "patients/{id}", method = RequestMethod.GET)
-    public Patient getPatientByID(@PathVariable int id){
-        return patientService.getPatient(id);
+    @Autowired
+    private RedisService redisService;
+
+    @RequestMapping(path = "patients", method = RequestMethod.POST)
+    public Patient addPatient(@RequestBody Patient patient){
+        return patientService.savePatient(patient);
     }
 
     @RequestMapping(path = "patients/validate/{name}/{password}", method = RequestMethod.GET)
@@ -30,19 +35,28 @@ public class PatientController {
         return patientService.getAllPatients();
     }
 
-    @RequestMapping(path = "patients", method = RequestMethod.POST)
-    public Patient addPatient(@RequestBody Patient patient){
-        return patientService.savePatient(patient);
+    @RequestMapping(path = "patients/{id}", method = RequestMethod.GET)
+    public Patient getPatientByID(@PathVariable int id) {
+        Patient patient = redisService.getPatient(id);
+        if (patient == null) {
+            return patientService.getPatient(id);
+        }
+        else {
+            return patientService.getPatient(patient.getID());
+        }
     }
 
     @RequestMapping(path = "patients", method = RequestMethod.PUT)
     public Patient updatePatient(@RequestBody Patient patient){
-        return patientService.savePatient(patient);
+        redisService.savePatient(patient);
+        Patient newPatient = redisService.getPatient(patient.getID());
+        return patientService.savePatient(newPatient);
     }
 
     @RequestMapping(path = "patients/{id}", method = RequestMethod.DELETE)
     public long deletePatient(@PathVariable long id){
-        return patientService.deletePatient(id);
+        long deleteId = redisService.deletePatient(id);
+        return patientService.deletePatient(deleteId);
     }
 }
 
