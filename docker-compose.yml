@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  db:
+    image: "postgres"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: s3747274
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - redis-service:redis
+    ports:
+      - 9000:9000
+    volumes:
+      - ~/docker/redis:/redis-service/logs
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: s3747274
+    depends_on:
+      - db
+  redis-service:
+    container_name: redis-service
+    image: docker-redis-service
+    build:
+      context: ./redis/
+      dockerfile: Dockerfile
+    hostname: redis
+    ports:
+      - 6379:6379
