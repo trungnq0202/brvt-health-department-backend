@@ -1,0 +1,33 @@
+version: '3'
+services:
+  health-report-service:
+    container_name: health-report-service
+    image: docker-health-report-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - redis-service:redis
+    ports:
+      - 8087:8087
+    volumes:
+      - ~/docker/redis:/redis-service/logs
+    networks:
+      - brvt
+    environment:
+      SERVER_IP: ${SERVER_IP}
+  redis-service:
+    container_name: redis-service
+    image: docker-redis-service
+    build:
+      context: ./redis/
+      dockerfile: Dockerfile
+    hostname: redis
+    ports:
+      - 6379:6379
+    networks:
+      - brvt
+networks:
+  brvt:
+    name: brvt
+    driver: bridge

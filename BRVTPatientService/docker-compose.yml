@@ -1,13 +1,13 @@
 version: "3.3"
 services:
-  doctor-service:
-    container_name: doctor-service
+  patient-service:
+    container_name: patient-service
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker-doctor-service
+    image: docker-patient-service
     ports:
-      - 8085:8085
+      - 8086:8086
     networks:
       - brvt
     environment:

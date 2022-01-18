@@ -1,13 +1,13 @@
 version: "3.3"
 services:
-  doctor-service:
-    container_name: doctor-service
+  api-gateway-service:
+    container_name: api-gateway-service
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker-doctor-service
+    image: docker-api-gateway-service
     ports:
-      - 8085:8085
+      - 8989:8989
     networks:
       - brvt
     environment:
