@@ -2,6 +2,7 @@ package com.trungngo.brvtpatientservice.service;
 
 import com.trungngo.brvtpatientservice.model.Patient;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -10,6 +11,8 @@ public interface PatientServiceInterface {
     Patient addPatient(Patient patient);
 
     Patient findPatientById(Integer id);
+
+    Patient findPatientByEmail(String email);
 
     Patient updateStatusById(Integer id, String status);
 
@@ -24,4 +27,7 @@ public interface PatientServiceInterface {
     Patient updatePatient(Patient doctor) throws InvalidKeySpecException, NoSuchAlgorithmException;
 
     Patient updateAssignedDoctor(int patientId, int doctorId);
+
+    Patient verifyPatientPassword(Patient patient) throws IOException;
+
 }

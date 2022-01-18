@@ -52,7 +52,7 @@ public class DoctorDAOImpl implements DoctorDAOInterface {
 
     @Override
     public Doctor findByEmail(String email) {
-        Query query = createQuery("from Doctor where email LIKE :email")
+        Query query = createQuery("from Doctor where email=:email")
                 .setParameter("email", email);
         return (Doctor) query.uniqueResult();
     }

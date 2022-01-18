@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -73,19 +74,28 @@ public class DoctorController {
         return doctorService.deleteDoctorById(id);
     }
 
+    @GetMapping(path="/findByEmail/{email}")
+    public ResponseEntity findDoctorByEmail(@PathVariable String email) {
+        return new ResponseEntity<>(
+                doctorService.findDoctorByEmail(email),
+                HttpStatus.OK
+        );
+    }
 
-//    @GetMapping(path="/{id}/getPatientList")
-//    public ResponseEntity getPatientListById(@PathVariable Integer id) {
-//        List<Patient> patientList = doctorService.getPatientListById(id);
-//        if(patientList == null) return new ResponseEntity<>("Doctor not found.", HttpStatus.BAD_REQUEST);
-//        else return new ResponseEntity<>(patientList, HttpStatus.OK);
-//    }
-
-//    @GetMapping(path="/{doctorId}/getPatientStatus/{patientId}")
-//    public ResponseEntity getPatientListById(@PathVariable Integer doctorId, @PathVariable Integer patientId) {
-//        String status = doctorService.getPatientStatusById(doctorId, patientId);
-//        if(status == null) return new ResponseEntity<>("Doctor not found or this doctor is not in charge of this patient.", HttpStatus.BAD_REQUEST);
-//        else return new ResponseEntity<>(status, HttpStatus.OK);
-//    }
+    @PostMapping("/auth")
+    public ResponseEntity verifyAccountPassword(@RequestBody Doctor doctor) throws IOException {
+        Doctor verifiedDoctor = doctorService.verifyDoctorPassword(doctor);
+        if (verifiedDoctor == null) {
+            return new ResponseEntity<>(
+                    "Failed to authenticate account",
+                    HttpStatus.BAD_REQUEST
+            );
+        } else {
+            return new ResponseEntity<>(
+                    verifiedDoctor,
+                    HttpStatus.OK
+            );
+        }
+    }
 
 }

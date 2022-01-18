@@ -17,6 +17,14 @@ spring:
                 - Content-Type
           add-to-simple-url-handler-mapping: true
       routes:
+#        - id: account-service
+#          uri: lb://ACCOUNT-SERVICE
+#          predicates:
+#            - Path=/accounts/**
+        - id: admin-service
+          uri: lb://ADMIN-SERVICE
+          predicates:
+            - Path=/admin/**
         - id: doctor-service
           uri: lb://DOCTOR-SERVICE
           predicates:
@@ -33,6 +41,10 @@ spring:
           uri: lb://BLOG-SERVICE
           predicates:
             - Path=/blog/**
+#        - id: login-service
+#          uri: lb://LOGIN-SERVICE
+#          predicates:
+#            - Path=/login/**
 
 eureka:
   client:

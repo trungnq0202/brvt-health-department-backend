@@ -40,6 +40,10 @@ public class Doctor{
     @NotNull
     private String password;
 
+    @Column
+    @NotNull
+    private String role;
+
     public Doctor() {
     }
 
@@ -106,4 +110,13 @@ public class Doctor{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }

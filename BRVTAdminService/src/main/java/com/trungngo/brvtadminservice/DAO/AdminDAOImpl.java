@@ -22,7 +22,7 @@ public class AdminDAOImpl implements AdminDAOInterface{
 
     @Override
     public List<Admin> findAll() {
-        Query query = createQuery("select * from Admin");
+        Query query = createQuery("from Admin");
         return query.getResultList();
     }
 
@@ -47,6 +47,12 @@ public class AdminDAOImpl implements AdminDAOInterface{
     @Override
     public Admin findById(Integer id) {
         Query query = createQuery("from Admin where id=:id").setParameter("id", id);
+        return (Admin) query.uniqueResult();
+    }
+
+    @Override
+    public Admin findByEmail(String email) {
+        Query query = createQuery("from Admin where email=:email").setParameter("email", email);
         return (Admin) query.uniqueResult();
     }
 

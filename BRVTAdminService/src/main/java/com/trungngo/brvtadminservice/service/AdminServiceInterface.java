@@ -1,8 +1,6 @@
 package com.trungngo.brvtadminservice.service;
 
 import com.trungngo.brvtadminservice.model.Admin;
-import com.trungngo.brvtadminservice.model.Doctor;
-import com.trungngo.brvtadminservice.model.Patient;
 
 import java.io.IOException;
 
@@ -16,12 +14,8 @@ public interface AdminServiceInterface {
 
     String deleteAdminById(Integer id);
 
-    String deleteDoctorById(Integer id);
 
-    String deletePatientById(Integer id);
+    public Admin findAdminByEmail(String email);
 
-    Doctor addDoctor(Doctor doctor);
-
-    Patient addPatient(Patient patient);
 
 }

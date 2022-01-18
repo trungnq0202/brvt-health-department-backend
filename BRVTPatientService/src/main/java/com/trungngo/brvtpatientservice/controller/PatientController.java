@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -109,6 +110,22 @@ public class PatientController {
                 patientService.findAllPatientByDoctorId(doctorId),
                 HttpStatus.OK
         );
+    }
+
+    @PostMapping("/auth")
+    public ResponseEntity verifyAccountPassword(@RequestBody Patient patient) throws IOException {
+        Patient verifiedPatient = patientService.verifyPatientPassword(patient);
+        if (verifiedPatient == null) {
+            return new ResponseEntity<>(
+                    "Failed to authenticate account",
+                    HttpStatus.BAD_REQUEST
+            );
+        } else {
+            return new ResponseEntity<>(
+                    verifiedPatient,
+                    HttpStatus.OK
+            );
+        }
     }
 
 }

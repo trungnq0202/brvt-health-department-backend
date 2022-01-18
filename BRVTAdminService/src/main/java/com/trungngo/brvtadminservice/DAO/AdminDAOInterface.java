@@ -10,4 +10,7 @@ public interface AdminDAOInterface {
     Admin update(Admin admin);
     Admin delete(Integer id);
     Admin findById(Integer id);
+    Admin findByEmail(String email);
+
+
 }

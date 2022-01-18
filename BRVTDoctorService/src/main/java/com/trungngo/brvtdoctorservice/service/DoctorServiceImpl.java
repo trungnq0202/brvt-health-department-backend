@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -65,6 +66,27 @@ public class DoctorServiceImpl implements DoctorServiceInterface {
             String password = doctor.getPassword();
             doctor.setPassword(SecurityHelper.encryptPassword(password));
             return doctorDAO.update(doctor);
+        }
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public Doctor findDoctorByEmail(String email) {
+        return doctorDAO.findByEmail(email);
+    }
+
+    @Override
+    @Transactional
+    public Doctor verifyDoctorPassword(Doctor doctor) throws IOException {
+        Doctor foundDoctor = findDoctorByEmail(doctor.getEmail());
+        if (foundDoctor != null) {
+            if (SecurityHelper.verifyPassword(doctor.getPassword(), foundDoctor.getPassword())) {
+                return foundDoctor;
+            }
+//            if (doctor.getPassword().equals(foundDoctor.getPassword())) {
+//                return foundDoctor;
+//            }
         }
         return null;
     }

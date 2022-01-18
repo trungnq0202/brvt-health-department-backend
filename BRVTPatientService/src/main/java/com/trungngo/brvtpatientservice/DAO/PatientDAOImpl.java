@@ -64,7 +64,7 @@ public class PatientDAOImpl implements PatientDAOInterface {
 
     @Override
     public Patient findByEmail(String email) {
-        Query query = createQuery("from Patient where email LIKE :email")
+        Query query = createQuery("from Patient where email=:email")
                 .setParameter("email", email);
         return (Patient) query.uniqueResult();
     }

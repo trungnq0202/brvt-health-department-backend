@@ -47,6 +47,10 @@ public class Patient {
     @Column
     private int doctorId;
 
+    @Column
+    @NotNull
+    private String role;
+
     public Patient() {
     }
 
@@ -130,6 +134,11 @@ public class Patient {
         this.doctorId = doctorId;
     }
 
+    public String getRole() {
+        return role;
+    }
 
-
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

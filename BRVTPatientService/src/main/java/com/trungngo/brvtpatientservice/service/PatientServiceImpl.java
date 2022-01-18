@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -24,8 +25,12 @@ public class PatientServiceImpl implements PatientServiceInterface {
     @Override
     @Transactional
     public Patient addPatient(Patient patient) {
-        if(patient.getStatus() != null && patient.getIllnessLevel() != null)
+        String email = patient.getEmail();
+        String password = patient.getPassword();
+        if(patient.getStatus() != null && patient.getIllnessLevel() != null && email != null && !email.equals("") && password != null && !password.equals("")){
+            patient.setPassword(SecurityHelper.encryptPassword(password));
             return patientDAO.save(patient);
+        }
         else return null;
     }
 
@@ -33,6 +38,11 @@ public class PatientServiceImpl implements PatientServiceInterface {
     @Transactional
     public Patient findPatientById(Integer id) {
         return patientDAO.findById(id);
+    }
+
+    @Override
+    public Patient findPatientByEmail(String email) {
+        return patientDAO.findByEmail(email);
     }
 
     @Override
@@ -90,6 +100,21 @@ public class PatientServiceImpl implements PatientServiceInterface {
     @Transactional
     public Patient updateAssignedDoctor(int patientId, int doctorId) {
         return patientDAO.updateAssignedDoctor(patientId, doctorId);
+    }
+
+    @Override
+    @Transactional
+    public Patient verifyPatientPassword(Patient patient) throws IOException {
+        Patient foundPatient = findPatientByEmail(patient.getEmail());
+        if (foundPatient != null) {
+            if (SecurityHelper.verifyPassword(patient.getPassword(), foundPatient.getPassword())) {
+                return foundPatient;
+            }
+//            if (patient.getPassword().equals(foundPatient.getPassword())) {
+//                return foundPatient;
+//            }
+        }
+        return null;
     }
 
 }
