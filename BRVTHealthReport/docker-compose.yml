@@ -1,13 +1,13 @@
 version: "3.3"
 services:
-  doctor-service:
-    container_name: doctor-service
+  healthreport-service:
+    container_name: healthreport-service
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker-doctor-service
+    image: docker-healthreport-service
     ports:
-      - 8085:8085
+      - 8087:8087
     networks:
       - postgres
 networks:

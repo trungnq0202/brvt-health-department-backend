@@ -1,13 +1,13 @@
 version: "3.3"
 services:
-  doctor-service:
-    container_name: doctor-service
+  blog-service:
+    container_name: blog-service
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker-doctor-service
+    image: docker-blog-service
     ports:
-      - 8085:8085
+      - 8088:8088
     networks:
       - postgres
 networks:

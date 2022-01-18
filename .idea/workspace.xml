@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29de5c71-b171-4664-97b8-796dffbeb57e" name="Default Changelist" comment="Add docker for db and redis">
+      <change afterPath="$PROJECT_DIR$/.idea/back_end.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/brvt-health-department-backend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/APIGateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/APIGateway/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTAdminService/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTAdminService/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTBlogService/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTBlogService/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTHealthReport/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTHealthReport/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTPatientService/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BRVTPatientService/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiscoveryService/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiscoveryService/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/rmitsb-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-backend.MainTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/backend.MainTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTAdminService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTAdminService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTAdminService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTAdminService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTBlogService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTBlogService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTDoctorService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTDoctorService/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTDoctorService/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTDoctorService/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTDoctorService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTDoctorService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTHealthReport/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTHealthReport/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRVTPatientService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BRVTPatientService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscoveryService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiscoveryService/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="back_end" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="23mE5XpsCrxPGvUJ7ubFKDxXN3U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.RmitsbApplication">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="backend.Main" />
+      <module name="back_end" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RmitsbApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rmit.rmitsb.RmitsbApplication" />
+      <module name="rmitsb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RmitsbApplication" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29de5c71-b171-4664-97b8-796dffbeb57e" name="Default Changelist" comment="" />
+      <created>1642330682630</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642330682630</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add docker for db and redis">
+      <created>1642435933745</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642435933745</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add docker for db and redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add docker for db and redis" />
+  </component>
+</project>
