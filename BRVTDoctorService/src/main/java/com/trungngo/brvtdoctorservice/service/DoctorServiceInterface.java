@@ -15,7 +15,7 @@ public interface DoctorServiceInterface {
 
     String deleteDoctorById(Integer id);
 
-    Doctor updateDoctor(Doctor doctor) throws InvalidKeySpecException, NoSuchAlgorithmException;
+    Doctor updateDoctor(Doctor doctor) ;
 
 
 //    List<Patient> getPatientListById(Integer id);

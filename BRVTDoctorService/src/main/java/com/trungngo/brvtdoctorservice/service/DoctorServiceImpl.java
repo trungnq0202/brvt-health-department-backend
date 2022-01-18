@@ -59,7 +59,7 @@ public class DoctorServiceImpl implements DoctorServiceInterface {
 
     @Override
     @Transactional
-    public Doctor updateDoctor(Doctor doctor) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public Doctor updateDoctor(Doctor doctor) {
         Doctor curDoctor = findDoctorById(doctor.getId());
         if (curDoctor != null) {
             String password = doctor.getPassword();
