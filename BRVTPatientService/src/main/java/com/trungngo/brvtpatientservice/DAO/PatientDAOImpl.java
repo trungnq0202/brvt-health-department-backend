@@ -26,8 +26,9 @@ public class PatientDAOImpl implements PatientDAOInterface {
     }
 
     @Override
-    public List<Patient> findAllByDoctorId() {
-        return null;
+    public List<Patient> findAllByDoctorId(Integer doctorId) {
+        Query query = createQuery("from Patient where doctor_id=:id").setParameter("id", doctorId);
+        return query.getResultList();
     }
 
     @Override

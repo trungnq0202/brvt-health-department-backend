@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PatientDAOInterface {
     List<Patient> findAll();
-    List<Patient> findAllByDoctorId();
+    List<Patient> findAllByDoctorId(Integer doctorId);
     Patient save(Patient patient);
     Patient update(Patient patient);
     Patient updateStatus(Patient patient, String status);

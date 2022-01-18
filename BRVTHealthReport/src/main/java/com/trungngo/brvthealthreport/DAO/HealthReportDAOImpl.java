@@ -27,8 +27,9 @@ public class HealthReportDAOImpl implements HealthReportDAOInterface{
     }
 
     @Override
-    public List<HealthReport> findAllByPatientId() {
-        return null;
+    public List<HealthReport> findAllByPatientId(Integer id) {
+        Query query = createQuery("from HealthReport where patient_id=:id").setParameter("id", id);
+        return query.getResultList();
     }
 
     @Override

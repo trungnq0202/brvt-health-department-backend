@@ -15,7 +15,7 @@ public interface PatientServiceInterface {
 
     List<Patient> findAllPatient();
 
-    List<Patient> findAllPatientByDoctorId(int patientId);
+    List<Patient> findAllPatientByDoctorId(int doctorId);
 
     String deletePatientById(Integer id);
 

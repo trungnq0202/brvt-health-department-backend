@@ -73,14 +73,12 @@ public class HealthReportController {
         return healthReportService.deleteHealthReportById(id);
     }
 
-//    @GetMapping(path="/findAll")
-//    public ResponseEntity findAllHealthReports() {
-//        return new ResponseEntity<>(
-//                healthReportService.find(),
-//                HttpStatus.OK
-//        );
-//    }
-
-
+    @GetMapping(path="/findAllByPatientId/{id}")
+    public ResponseEntity findAllHealthReports(@PathVariable Integer id) {
+        return new ResponseEntity<>(
+                healthReportService.findAllHealthReportByPatientId(id),
+                HttpStatus.OK
+        );
+    }
 
 }

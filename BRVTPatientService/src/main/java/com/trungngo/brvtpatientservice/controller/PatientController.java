@@ -103,4 +103,12 @@ public class PatientController {
         }
     }
 
+    @GetMapping(path="/findAllByDoctorId/{id}")
+    public ResponseEntity findAllPatientsByDoctorId(@PathVariable Integer doctorId) {
+        return new ResponseEntity<>(
+                patientService.findAllPatientByDoctorId(doctorId),
+                HttpStatus.OK
+        );
+    }
+
 }

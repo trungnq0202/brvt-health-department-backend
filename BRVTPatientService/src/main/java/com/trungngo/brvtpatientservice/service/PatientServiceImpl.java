@@ -50,8 +50,9 @@ public class PatientServiceImpl implements PatientServiceInterface {
     }
 
     @Override
-    public List<Patient> findAllPatientByDoctorId(int patientId) {
-        return null;
+    @Transactional
+    public List<Patient> findAllPatientByDoctorId(int doctorId) {
+        return patientDAO.findAllByDoctorId(doctorId);
     }
 
     @Override
