@@ -32,6 +32,12 @@ public class HealthReportDAOImpl implements HealthReportDAOInterface{
     }
 
     @Override
+    public List<HealthReport> findByStatus(String status) {
+        Query query = createQuery("from HealthReport where status=:status").setParameter("status", status);
+        return query.getResultList();
+    }
+
+    @Override
     public HealthReport save(HealthReport healthReport) {
         return entityManager.merge(healthReport);
     }

@@ -16,7 +16,7 @@ public interface HealthReportServiceInterface {
 
     String deleteHealthReportById(Integer id);
 
+    List<?> findHealthReportsByStatus(String status);
+
     HealthReport updateHealthReport(HealthReport healthReport);
-
-
 }

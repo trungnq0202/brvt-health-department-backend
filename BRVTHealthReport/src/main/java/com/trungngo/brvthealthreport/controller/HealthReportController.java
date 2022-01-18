@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/health-report")
 public class HealthReportController {
@@ -40,6 +42,14 @@ public class HealthReportController {
         HealthReport healthReport = healthReportService.findHealthReportById(id);
         if(healthReport == null) return new ResponseEntity<>("Health report not found.", HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>(healthReport, HttpStatus.OK);
+    }
+
+    @GetMapping(path="/findByStatus/{status}")
+    public ResponseEntity getHealthReportsByStatus(@PathVariable String status) {
+        return new ResponseEntity<>(
+                healthReportService.findHealthReportsByStatus(status),
+                HttpStatus.OK
+        );
     }
 
     @PutMapping(path="")
