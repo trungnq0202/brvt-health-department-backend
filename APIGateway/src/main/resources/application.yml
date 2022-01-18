@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+          cors-configurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+              allowedHeaders:
+                - Content-Type
+          add-to-simple-url-handler-mapping: true
+      routes:
+        - id: doctor-service
+          uri: lb://DOCTOR-SERVICE
+          predicates:
+            - Path=/doctor/**
+        - id: patient-service
+          uri: lb://PATIENT-SERVICE
+          predicates:
+            - Path=/patient/**
+        - id: health-report-service
+          uri: lb://HEALTHREPORT-SERVICE
+          predicates:
+            - Path=/health-report/**
+        - id: blog-service
+          uri: lb://BLOG-SERVICE
+          predicates:
+            - Path=/blog/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+#    ip-address: ${SERVER_IP}
+
+server:
+  port: 8989

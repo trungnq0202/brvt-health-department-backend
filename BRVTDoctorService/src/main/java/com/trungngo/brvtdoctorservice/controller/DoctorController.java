@@ -74,7 +74,6 @@ public class DoctorController {
     }
 
 
-
 //    @GetMapping(path="/{id}/getPatientList")
 //    public ResponseEntity getPatientListById(@PathVariable Integer id) {
 //        List<Patient> patientList = doctorService.getPatientListById(id);
